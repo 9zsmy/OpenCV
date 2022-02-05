@@ -1,0 +1,16 @@
+Mac M1在Xcode下配置OpenCV(OpenCV已经下载好)
+
+新建一个Command Line Tool 项目 语言选择C++
+点击工程 找到“Search Paths” 添加相关目录 有：
+a. Header Search Paths —— 添加 “/opt/homebrew/Cellar/opencv/4.5.3_1/include/opencv4 /opt/homebrew/Cellar/opencv/4.5.3_1/include/opencv4/opencv2”
+b. Library Search Paths —— 添加"/opt/homebrew/Cellar/opencv/4.5.3_1/lib"
+右键工程新建一个文件夹(Group)，使用commend+shift+G，将“/usr/local/Cellar/opencv/4.5.3_1/lib”文件夹中的"*.dylib"文件拖拽进去
+
+
+如果要使用摄像头等需要配置info.plist文件，并且在Signing & Capabilities中勾选相应内容
+新建一个property list文件命名为info.plist
+
+targets选择products里的文件。
+创建好了以后就在xcode中打开这个文件，加入添加Privacy-Camera Usage Description这样一行，value随意。
+点选products中的文件，右键，选择在finder中打开。
+将创建好的info.plist粘贴到该位置并删除原有的info.plist即可。
